@@ -2,6 +2,10 @@ if BLOCK
 
 menu "IO Schedulers"
 
+config IOSCHED_MAPLE
+	tristate "Maple I/O scheduler"
+	default y
+
 config IOSCHED_NOOP
 	bool
 	default y
@@ -134,6 +138,9 @@ choice
 	config DEFAULT_NOOP
 		bool "No-op"
 
+	config DEFAULT_MAPLE
+		bool "Maple" if IOSCHED_MAPLE=y
+
 endchoice
 
 config DEFAULT_IOSCHED
@@ -144,6 +151,7 @@ config DEFAULT_IOSCHED
 	default "fiops" if DEFAULT_FIOPS
 	default "bfq" if DEFAULT_BFQ
 	default "noop" if DEFAULT_NOOP
+	default "maple" if DEFAULT_MAPLE
 
 endmenu
 
