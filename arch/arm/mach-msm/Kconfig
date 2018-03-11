@@ -2848,4 +2848,10 @@ config FORCE_FAST_CHARGE
 	  This allows users to override default charge rate for both USB and AC
 	  charger input current
 
+config ALUCARD_HOTPLUG
+	bool "Enable alucard-hotplug cpu hotplug driver"
+	default n
+	help
+	  Generic Alucard-hotplug cpu hotplug driver for ARM SOCs
+
 endif
